@@ -32,7 +32,7 @@
   <widget class="QLabel" name="label_h">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>60</x>
      <y>170</y>
      <width>251</width>
      <height>41</height>
@@ -51,7 +51,7 @@
   <widget class="QPushButton" name="pushButton_h">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>340</x>
      <y>180</y>
      <width>101</width>
      <height>31</height>
@@ -64,8 +64,8 @@
   <widget class="QPushButton" name="pushButton_p">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>240</y>
+     <x>340</x>
+     <y>230</y>
      <width>101</width>
      <height>31</height>
     </rect>
@@ -77,8 +77,8 @@
   <widget class="QLabel" name="label_p">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>230</y>
+     <x>40</x>
+     <y>220</y>
      <width>251</width>
      <height>51</height>
     </rect>
@@ -120,6 +120,32 @@
    </property>
    <property name="text">
     <string>Wybierz warstwe z własciwymi punktami</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_wyn_h">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>180</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_wyn_p">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>230</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
