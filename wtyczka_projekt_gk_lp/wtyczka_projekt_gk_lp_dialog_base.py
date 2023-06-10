@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\Users\marci\Desktop\wtyczkaqgis\wtyczka_projekt_gk_lp\wtyczka_projekt_gk_lp_dialog_base.ui'
+# Form implementation generated from reading ui file 'C:\Users\marci\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\wtyczka_projekt_gk_lp\wtyczka_projekt_gk_lp_dialog_base.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -16,25 +16,25 @@ class Ui_WtyczkaProjektGKLPDialogBase(object):
         WtyczkaProjektGKLPDialogBase.setObjectName("WtyczkaProjektGKLPDialogBase")
         WtyczkaProjektGKLPDialogBase.resize(645, 505)
         self.button_box = QtWidgets.QDialogButtonBox(WtyczkaProjektGKLPDialogBase)
-        self.button_box.setGeometry(QtCore.QRect(100, 330, 341, 32))
+        self.button_box.setGeometry(QtCore.QRect(110, 410, 341, 32))
         self.button_box.setOrientation(QtCore.Qt.Horizontal)
         self.button_box.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.button_box.setObjectName("button_box")
         self.label_h = QtWidgets.QLabel(WtyczkaProjektGKLPDialogBase)
-        self.label_h.setGeometry(QtCore.QRect(160, 170, 251, 41))
+        self.label_h.setGeometry(QtCore.QRect(60, 150, 251, 41))
         font = QtGui.QFont()
         font.setFamily("Rockwell")
         font.setPointSize(12)
         self.label_h.setFont(font)
         self.label_h.setObjectName("label_h")
         self.pushButton_h = QtWidgets.QPushButton(WtyczkaProjektGKLPDialogBase)
-        self.pushButton_h.setGeometry(QtCore.QRect(420, 180, 101, 31))
+        self.pushButton_h.setGeometry(QtCore.QRect(350, 160, 101, 31))
         self.pushButton_h.setObjectName("pushButton_h")
         self.pushButton_p = QtWidgets.QPushButton(WtyczkaProjektGKLPDialogBase)
-        self.pushButton_p.setGeometry(QtCore.QRect(420, 240, 101, 31))
+        self.pushButton_p.setGeometry(QtCore.QRect(350, 270, 101, 31))
         self.pushButton_p.setObjectName("pushButton_p")
         self.label_p = QtWidgets.QLabel(WtyczkaProjektGKLPDialogBase)
-        self.label_p.setGeometry(QtCore.QRect(150, 230, 251, 51))
+        self.label_p.setGeometry(QtCore.QRect(60, 260, 251, 51))
         font = QtGui.QFont()
         font.setFamily("Rockwell")
         font.setPointSize(12)
@@ -50,6 +50,14 @@ class Ui_WtyczkaProjektGKLPDialogBase(object):
         font.setPointSize(12)
         self.label_w.setFont(font)
         self.label_w.setObjectName("label_w")
+        self.label_wyn_h = QtWidgets.QLabel(WtyczkaProjektGKLPDialogBase)
+        self.label_wyn_h.setGeometry(QtCore.QRect(50, 220, 491, 31))
+        self.label_wyn_h.setText("")
+        self.label_wyn_h.setObjectName("label_wyn_h")
+        self.label_wyn_p = QtWidgets.QLabel(WtyczkaProjektGKLPDialogBase)
+        self.label_wyn_p.setGeometry(QtCore.QRect(70, 320, 431, 51))
+        self.label_wyn_p.setText("")
+        self.label_wyn_p.setObjectName("label_wyn_p")
 
         self.retranslateUi(WtyczkaProjektGKLPDialogBase)
         self.button_box.accepted.connect(WtyczkaProjektGKLPDialogBase.accept) # type: ignore
