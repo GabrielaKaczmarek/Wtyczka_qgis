@@ -52,7 +52,7 @@ class WtyczkaProjektGKLPDialog(QtWidgets.QDialog, FORM_CLASS):
         # #widgets-and-dialogs-with-auto-connect
         self.setupUi(self)
         self.pushButton_h.clicked.connect(self.wysokosc)
-        #self.klik_pole.clicked.connect(self.pole)
+        self.pushButton_p.clicked.connect(self.pole)
         
         
     def wysokosc(self):
@@ -79,3 +79,33 @@ class WtyczkaProjektGKLPDialog(QtWidgets.QDialog, FORM_CLASS):
             self.label_wyn_h.setText("Niewystarczająca ilosc punktów - wybierz dwa !")
         elif l_el > 2:
             self.label_wyn_h.setText("Nadliczbowa liczba punktów - wybierz dwa !")
+            
+    def pole(self):
+        warstwa = self.wybierz_warstwy.currentLayer()
+        l_el = len(warstwa.selectedFeatures())
+        if l_el == 3: 
+            X = []
+            Y = []
+            NR = []
+            wsp = []
+            dane = warstwa.selectedFeatures() 
+            for e in dane:
+                nr = e["Nr"] 
+                x = e["X"]
+                y = e["Y"]
+                z = e["Z"]
+                wsp.append((x,y))
+                NR.append(nr)
+            pole = 0
+            n = len(wsp)
+            for i in range(n):
+                x0,y0 = wsp[(i - 1)% n]
+                x1, y1 = wsp[i]
+                x2, y2 = wsp[(i + 1) % n]  
+                pole += (x1*(y2-y0))
+            pole =abs(pole) / 2 
+            self.label_wyn_p.setText(f'Pole powierzchni utworzone z punktów {NR} wynosi {pole:.3f} m^2')       
+        elif l_el < 3: 
+            self.label_wyn_p.setText("Niewystarczająca ilosc punktów - wybierz trzy !")
+        elif l_el > 3:
+            self.label_wyn_p.setText("Nadliczbowa liczba punktów - wybierz trzy !")
