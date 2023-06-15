@@ -83,29 +83,26 @@ class WtyczkaProjektGKLPDialog(QtWidgets.QDialog, FORM_CLASS):
     def pole(self):
         warstwa = self.wybierz_warstwy.currentLayer()
         l_el = len(warstwa.selectedFeatures())
-        if l_el == 3: 
-            X = []
-            Y = []
-            NR = []
-            wsp = []
-            dane = warstwa.selectedFeatures() 
-            for e in dane:
-                nr = e["Nr"] 
-                x = e["X"]
-                y = e["Y"]
-                z = e["Z"]
-                wsp.append((x,y))
-                NR.append(nr)
-            pole = 0
-            n = len(wsp)
-            for i in range(n):
-                x0,y0 = wsp[(i - 1)% n]
-                x1, y1 = wsp[i]
-                x2, y2 = wsp[(i + 1) % n]  
-                pole += (x1*(y2-y0))
-            pole =abs(pole) / 2 
-            self.label_wyn_p.setText(f'Pole powierzchni utworzone z punktów {NR} wynosi {pole:.3f} m^2')       
+        if l_el >= 3 : 
+            punkty = []
+            Nr = []
+            wybrane_elementy = warstwa.selectedFeatures() 
+            for elementy in  wybrane_elementy:
+                pnr = elementy["Nr"]
+                punkt = elementy.geometry().asPoint()
+                X = punkt.x()
+                Y = punkt.y()
+                punkty.append((X,Y))
+                Nr.append(pnr)
+                punkt_referencyjny = min(punkty, key=lambda p: p[0])
+                punkty_posortowane = sorted(punkty, key=lambda p: (p[0] - punkt_referencyjny[0], p[1] - punkt_referencyjny[1]))
+                pole = 0
+                for i in range(len(punkty)):
+                    x1, y1 = punkty_posortowane[i]
+                    x2, y2 = punkty_posortowane[(i + 1) % (len(punkty))]
+                    pole += (x1 + x2) * (y2 - y1) 
+                pole =abs(pole) / 2 
+                self.label_wyn_p.setText(f'Pole powierzchni utworzone z punktów {Nr} wynosi {pole:.3f} m^2') 
         elif l_el < 3: 
-            self.label_wyn_p.setText("Niewystarczająca ilosc punktów - wybierz trzy !")
-        elif l_el > 3:
-            self.label_wyn_p.setText("Nadliczbowa liczba punktów - wybierz trzy !")
+                self.label_wyn_p.setText("Niewystarczająca ilosc punktów - wybierz trzy !")
+            
